@@ -5,7 +5,7 @@
 
 
 Stored XSS on the list parameters (Replace $DEVICE_ID with your specific $DEVICE_ID value):
-`/device/device=$DEVICE_ID/tab=edit/section=misc` -> param: state
+`ajax_form.php` -> param: state
 
 
 
